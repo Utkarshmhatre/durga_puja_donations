@@ -42,8 +42,7 @@ class AdminFeedbackPage extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: isSmall ? 24 : 32,
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                        AppTheme.dynamicTextPrimary(context),
+                                    color: AppTheme.dynamicTextPrimary(context),
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -61,8 +60,7 @@ class AdminFeedbackPage extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.all(isSmall ? 10 : 12),
                             decoration: BoxDecoration(
-                              color:
-                                  AppTheme.sacredGold.withValues(alpha: 0.2),
+                              color: AppTheme.sacredGold.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(14),
                             ),
                             child: Icon(
@@ -95,8 +93,7 @@ class AdminFeedbackPage extends StatelessWidget {
                     else
                       ...feedback.asMap().entries.map((entry) {
                         return FadeInUp(
-                          delay: Duration(
-                              milliseconds: 200 + (entry.key * 50)),
+                          delay: Duration(milliseconds: 200 + (entry.key * 50)),
                           child: _buildFeedbackTile(
                               context, entry.value, isSmall, dataService),
                         );
@@ -132,8 +129,7 @@ class AdminFeedbackPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Icon(Icons.rate_review_outlined,
-                        color: AppTheme.accentCyan,
-                        size: isSmall ? 22 : 28),
+                        color: AppTheme.accentCyan, size: isSmall ? 22 : 28),
                     const SizedBox(height: 8),
                     Text(
                       '$count',
@@ -162,8 +158,7 @@ class AdminFeedbackPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Icon(Icons.star_rounded,
-                        color: AppTheme.sacredGold,
-                        size: isSmall ? 22 : 28),
+                        color: AppTheme.sacredGold, size: isSmall ? 22 : 28),
                     const SizedBox(height: 8),
                     Text(
                       avgRating > 0 ? avgRating.toStringAsFixed(1) : '-',
@@ -281,8 +276,8 @@ class AdminFeedbackPage extends StatelessWidget {
                     const SizedBox(width: 8),
                     // Delete button
                     GestureDetector(
-                      onTap: () => _showDeleteDialog(
-                          context, feedback, dataService),
+                      onTap: () =>
+                          _showDeleteDialog(context, feedback, dataService),
                       child: Icon(
                         Icons.delete_outline,
                         size: 18,
@@ -303,8 +298,7 @@ class AdminFeedbackPage extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.person_outline,
-                        size: 14,
-                        color: AppTheme.dynamicTextMuted(context)),
+                        size: 14, color: AppTheme.dynamicTextMuted(context)),
                     const SizedBox(width: 4),
                     Text(
                       feedback.name,
@@ -316,8 +310,7 @@ class AdminFeedbackPage extends StatelessWidget {
                     if (feedback.email.isNotEmpty) ...[
                       const SizedBox(width: 12),
                       Icon(Icons.email_outlined,
-                          size: 14,
-                          color: AppTheme.dynamicTextMuted(context)),
+                          size: 14, color: AppTheme.dynamicTextMuted(context)),
                       const SizedBox(width: 4),
                       Expanded(
                         child: Text(

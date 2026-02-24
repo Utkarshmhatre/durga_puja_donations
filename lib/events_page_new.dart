@@ -305,45 +305,45 @@ class _EventsPageNewState extends State<EventsPageNew> {
         selected: isSelected,
         label: '$label category filter${isSelected ? ', selected' : ''}',
         child: GestureDetector(
-        onTap: () {
-          setState(() {
-            _selectedCategory = value;
-          });
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          decoration: BoxDecoration(
-            gradient: isSelected
-                ? const LinearGradient(
-                    colors: [AppTheme.vermillion, AppTheme.sacredGold],
-                  )
-                : null,
-            color: isSelected
-                ? null
-                : (isDark
-                    ? Colors.white.withValues(alpha: 0.1)
-                    : Colors.white.withValues(alpha: 0.78)),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
+          onTap: () {
+            setState(() {
+              _selectedCategory = value;
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            decoration: BoxDecoration(
+              gradient: isSelected
+                  ? const LinearGradient(
+                      colors: [AppTheme.vermillion, AppTheme.sacredGold],
+                    )
+                  : null,
               color: isSelected
-                  ? AppTheme.vermillion
+                  ? null
                   : (isDark
-                      ? Colors.white.withValues(alpha: 0.2)
-                      : AppTheme.sacredGold.withValues(alpha: 0.35)),
+                      ? Colors.white.withValues(alpha: 0.1)
+                      : Colors.white.withValues(alpha: 0.78)),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: isSelected
+                    ? AppTheme.vermillion
+                    : (isDark
+                        ? Colors.white.withValues(alpha: 0.2)
+                        : AppTheme.sacredGold.withValues(alpha: 0.35)),
+              ),
             ),
-          ),
-          child: Text(
-            label,
-            style: TextStyle(
-              color: isSelected
-                  ? Colors.white
-                  : (isDark ? Colors.white60 : const Color(0xFF3B2714)),
-              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+            child: Text(
+              label,
+              style: TextStyle(
+                color: isSelected
+                    ? Colors.white
+                    : (isDark ? Colors.white60 : const Color(0xFF3B2714)),
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+              ),
             ),
           ),
         ),
-      ),
       ),
     );
   }
@@ -359,159 +359,160 @@ class _EventsPageNewState extends State<EventsPageNew> {
         : AppLocalizations.of(context)!.locationTbd;
 
     return Semantics(
-      label: '${event.title}, ${event.category} event on ${_getMonth(event.date.month)} ${event.date.day}',
+      label:
+          '${event.title}, ${event.category} event on ${_getMonth(event.date.month)} ${event.date.day}',
       child: Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            categoryColor.withValues(alpha: 0.2),
-            (isDark
-                ? Colors.white.withValues(alpha: 0.05)
-                : const Color(0xFFFFF8F0).withValues(alpha: 0.82)),
-          ],
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              categoryColor.withValues(alpha: 0.2),
+              (isDark
+                  ? Colors.white.withValues(alpha: 0.05)
+                  : const Color(0xFFFFF8F0).withValues(alpha: 0.82)),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: categoryColor.withValues(alpha: 0.3),
+          ),
         ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: categoryColor.withValues(alpha: 0.3),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Date Card
-            Container(
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: categoryColor.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    event.date.day.toString(),
-                    style: TextStyle(
-                      color: categoryColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Date Card
+              Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: categoryColor.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      event.date.day.toString(),
+                      style: TextStyle(
+                        color: categoryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                      ),
                     ),
-                  ),
-                  Text(
-                    _getMonth(event.date.month),
-                    style: TextStyle(
-                      color: categoryColor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
+                    Text(
+                      _getMonth(event.date.month),
+                      style: TextStyle(
+                        color: categoryColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          event.title,
-                          style: TextStyle(
-                            color: titleColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            event.title,
+                            style: TextStyle(
+                              color: titleColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
+                        if (isPast)
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
+                            decoration: BoxDecoration(
+                              color: (isDark
+                                  ? Colors.white.withValues(alpha: 0.1)
+                                  : const Color(0xFFFFF3E6)
+                                      .withValues(alpha: 0.9)),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(
+                              AppLocalizations.of(context)!.pastBadge,
+                              style: TextStyle(
+                                color: mutedColor,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      event.description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: secondaryColor,
+                        fontSize: 13,
                       ),
-                      if (isPast)
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: (isDark
-                                ? Colors.white.withValues(alpha: 0.1)
-                                : const Color(0xFFFFF3E6)
-                                    .withValues(alpha: 0.9)),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          size: 14,
+                          color: categoryColor,
+                        ),
+                        const SizedBox(width: 4),
+                        Expanded(
                           child: Text(
-                            AppLocalizations.of(context)!.pastBadge,
+                            locationText,
                             style: TextStyle(
                               color: mutedColor,
+                              fontSize: 12,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: categoryColor.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            event.category.toUpperCase(),
+                            style: TextStyle(
+                              color: categoryColor,
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    event.description,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: secondaryColor,
-                      fontSize: 13,
+                      ],
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        size: 14,
-                        color: categoryColor,
-                      ),
-                      const SizedBox(width: 4),
-                      Expanded(
-                        child: Text(
-                          locationText,
-                          style: TextStyle(
-                            color: mutedColor,
-                            fontSize: 12,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: categoryColor.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          event.category.toUpperCase(),
-                          style: TextStyle(
-                            color: categoryColor,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  // Action buttons row
-                  _buildEventActions(event, isDark),
-                ],
+                    const SizedBox(height: 10),
+                    // Action buttons row
+                    _buildEventActions(event, isDark),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
     );
   }
 

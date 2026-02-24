@@ -122,18 +122,18 @@ Widget _buildFeatureCard({
       button: true,
       label: '$title, $subtitle',
       child: SizedBox(
-      width: width,
-      height: height,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: enableBlur
-            ? BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-                child: cardContent,
-              )
-            : cardContent,
+        width: width,
+        height: height,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: enableBlur
+              ? BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                  child: cardContent,
+                )
+              : cardContent,
+        ),
       ),
-    ),
     ),
   );
 }

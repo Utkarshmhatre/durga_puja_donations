@@ -37,8 +37,8 @@ class UserFeedback {
       rating: json['rating'] ?? 3,
       message: json['message'] ?? '',
       category: json['category'] ?? 'general',
-      createdAt: DateTime.parse(
-          json['createdAt'] ?? DateTime.now().toIso8601String()),
+      createdAt:
+          DateTime.parse(json['createdAt'] ?? DateTime.now().toIso8601String()),
     );
   }
 
